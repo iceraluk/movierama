@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore IDE files
+.idea/*
+
+# Redis dump.rdb file
+dump.rdb
