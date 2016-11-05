@@ -29,6 +29,9 @@ gem 'draper'
 # Use Redis as cache
 gem 'redis-rails'
 
+# To use ENV variables on development
+gem 'figaro'
+
 # Use Sidekiq for background processes
 gem 'sidekiq'
 gem 'sinatra'

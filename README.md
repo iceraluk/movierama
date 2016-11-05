@@ -56,6 +56,16 @@ Then point your browser to https://127.0.0.1:24676
 
 Enjoy!
 
+### Setup application.yml and add REDIS_URL
+
+Install figaro
+
+    $ bundle exec figaro install
+    
+Add the following line to your application.yml file
+
+    REDIS_URL: redis://localhost:6379
+
 ### Run Sidekiq
 
 On development

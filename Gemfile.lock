@@ -64,6 +64,8 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
+    figaro (1.1.1)
+      thor (~> 0.14)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -282,6 +284,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
   draper
+  figaro
   foreman
   guard-rspec
   haml-rails
