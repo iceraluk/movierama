@@ -49,7 +49,7 @@ RSpec.describe 'VoteMailer' do
         expect(hate_mail.body.encoded).to match('hate')
       end
 
-      it 'renders the like subject' do
+      it 'renders the hate subject' do
         expect(hate_mail.subject).to eql('New hate for: ' + movie.title)
       end
 
