@@ -56,6 +56,25 @@ Then point your browser to https://127.0.0.1:24676
 
 Enjoy!
 
+### Run Sidekiq
+
+On development
+
+    $ bundle exec sidekiq --environment development -C config/sidekiq.yml
+
+### Test incoming emails on development
+
+Mailcatcher (https://mailcatcher.me/)
+
+Setup 
+
+    $ gem install mailcatcher 
+
+Run 
+
+    $ mailcatcher 
+
+Go to http://localhost:1080/
 
 #### Getting authentication to work
 
