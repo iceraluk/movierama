@@ -1,5 +1,7 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  
+
   resource :session, only: %i(create destroy)
   get '/auth/:provider/callback', to: 'sessions#create'
 
@@ -10,6 +12,9 @@ Rails.application.routes.draw do
   resources :users, only: %i() do
     resources :movies, only: %(index), controller: 'movies'
   end
+
+  mount Sidekiq::Web => '/sidekiq'
+
 
   root 'movies#index'
 end

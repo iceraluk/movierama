@@ -34,6 +34,6 @@ class VotingBooth
   end
 
   def _send_email(like_or_hate)
-    VoteNotification.notify_user(like_or_hate, @movie.user.email).deliver if @movie.user.email
+    VoteMailer.delay.notify_user(like_or_hate, @movie) if @movie.user.email
   end
 end

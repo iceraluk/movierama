@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'VotingBooth' do
   subject { VotingBooth.new(user, movie) }
   let(:subject_no_email) { VotingBooth.new(user, movie_no_email) }
@@ -14,15 +13,15 @@ RSpec.describe 'VotingBooth' do
   describe 'voting' do
     context 'user has email' do
       it 'sends like email' do
-        expect{subject.vote(like)}.to change { ActionMailer::Base.deliveries.count }.by(1)
+        expect {subject.vote(like)}.to change(Sidekiq::Extensions::DelayedMailer.jobs, :size).by(1)
       end
       it 'sends hate email' do
-        expect{subject.vote(hate)}.to change { ActionMailer::Base.deliveries.count }.by(1)
+        expect {subject.vote(hate)}.to change(Sidekiq::Extensions::DelayedMailer.jobs, :size).by(1)
       end
     end
     context 'user does not have email' do
       it 'does not send email' do
-        expect{subject_no_email.vote(like)}.to change { ActionMailer::Base.deliveries.count }.by(0)
+        expect {subject_no_email.vote(like)}.to change(Sidekiq::Extensions::DelayedMailer.jobs, :size).by(0)
       end
     end
   end
